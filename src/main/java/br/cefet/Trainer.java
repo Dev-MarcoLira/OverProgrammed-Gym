@@ -1,51 +1,42 @@
 package br.cefet;
 
-public class Trainer extends Person{
+import java.util.ArrayList;
+
+public class Trainer extends Employee{
     
+    private ArrayList<Class> gymClasses;
+
     public Trainer(
         String nome, 
         String cpf, 
         String dtNascimento, 
-        String telefone
+        String telefone,
+        String ctps,
+        float salario,
+        int seguridade,
+        String cargo
     ) {
-            super(nome, cpf, dtNascimento, telefone);
+        super(
+            nome, 
+            cpf, 
+            dtNascimento, 
+            telefone, 
+            ctps, 
+            salario,
+            seguridade,
+            cargo
+        );
+
+        gymClasses = new ArrayList<>(gymClasses);
+    }
+
+    public void addClass(Class gymclass){
+
+        this.gymClasses.add(gymclass);
     }
     
-        private String ctps;
-    private String salario;
-    private Class createdClass;
-
-    public Class criarAula(String descricao){
-
-        this.createdClass = new Class();
-        this.createdClass.criarAula(descricao, this.getId());
-        
-        return this.createdClass;
+    public ArrayList<Class> getClasses(){
+        return this.gymClasses;
     }
-
-    public String getCtps() {
-        return this.ctps;
-    }
-
-    public void setCtps(String ctps) {
-        this.ctps = ctps;
-    }
-
-    public String getSalario() {
-        return this.salario;
-    }
-
-    public void setSalario(String salario) {
-        this.salario = salario;
-    }
-
-    public Class getCreatedClass() {
-        return this.createdClass;
-    }
-
-    public void setCreatedClass(Class createdClass) {
-        this.createdClass = createdClass;
-    }
-
 
 }
