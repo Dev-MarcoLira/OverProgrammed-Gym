@@ -2,21 +2,24 @@ package br.cefet;
 
 public class Member extends Person {
  
+    private int matricula;
+
     public Member(
         String nome, 
         String cpf, 
         String dtNascimento, 
-        String telefone
+        String telefone,
+        int matricula
     ) {
         super(nome, cpf, dtNascimento, telefone);
+
+        setMatricula(matricula);
     }
-    
-        private int matricula;
 
-    private Assignment scheduled;
+    private Appointment scheduled;
 
-    public Assignment scheduleClass(int classId, int memberId){
-        scheduled = new Assignment();
+    public Appointment scheduleClass(int classId, int memberId){
+        scheduled = new Appointment();
         scheduled.agendarAula(memberId, classId);
 
         return scheduled;
