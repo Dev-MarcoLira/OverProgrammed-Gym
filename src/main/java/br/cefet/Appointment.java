@@ -2,14 +2,14 @@ package br.cefet;
 
 import java.util.Random;
 
-public class Assignment {
+public class Appointment {
     
     private String dataAgendada;
     private int id;
     private int memberId;
     private int classId;
 
-    public Assignment(){
+    public Appointment(){
         Random random = new Random();
         int rand = random.nextInt(1000000) + 1;
         this.id = rand;
