@@ -1,7 +1,5 @@
 package br.cefet;
 
-import java.util.Random;
-
 public class Person {
     private String dtNascimento;
     private String telefone;
@@ -12,15 +10,10 @@ public class Person {
 
     private char genero;
     private int matricula;
-    private int id;
     private float peso;
     private float altura;
 
     public Person(String nome, String cpf, String dtNascimento, String telefone){
-        Random random = new Random();
-        int rand = random.nextInt(1000000) + 1;
-        this.id = rand;
-
         setNome(nome);
         setCpf(cpf);
         setDtNascimento(dtNascimento);
@@ -105,14 +98,6 @@ public class Person {
 
     public void setMatricula(int matricula) {
         this.matricula = matricula;
-    }
-
-    public int getId() {
-        return this.id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public float getPeso() {
