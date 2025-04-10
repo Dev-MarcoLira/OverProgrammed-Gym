@@ -31,7 +31,6 @@ public class Trainer extends Employee{
     }
 
     public void addClass(Class gymclass){
-
         this.gymClasses.add(gymclass);
     }
     

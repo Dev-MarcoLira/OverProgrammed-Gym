@@ -10,11 +10,6 @@ public class Class {
         setDescricao(descricao);
     }
 
-    public void createClass(String descricao, Trainer trainer){
-        this.descricao = descricao;
-        trainer.addClass(this);
-    }
-
     public String getDescricao() {
         return this.descricao;
     }

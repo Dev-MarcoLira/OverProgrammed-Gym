@@ -1,28 +1,31 @@
 package br.cefet;
 
+import java.util.ArrayList;
+
 public class Member extends Person {
  
     private int matricula;
-
+    private ArrayList<Appointment> scheduledClasses = new ArrayList<Appointment>();
+    
     public Member(
         String nome, 
         String cpf, 
         String dtNascimento, 
         String telefone,
         int matricula
-    ) {
-        super(nome, cpf, dtNascimento, telefone);
+        ) {
+            super(nome, cpf, dtNascimento, telefone);
+            
+            setMatricula(matricula);
+        }
+        
 
-        setMatricula(matricula);
+    public ArrayList<Appointment> getScheduledClasses() {
+        return this.scheduledClasses;
     }
 
-    private Appointment scheduled;
-
-    public Appointment scheduleClass(int classId, int memberId){
-        scheduled = new Appointment();
-        scheduled.agendarAula(memberId, classId);
-
-        return scheduled;
+    public void addScheduledClass(Appointment scheduledClass) {
+        this.scheduledClasses.add(scheduledClass);
     }
 
     public float getImc(){
