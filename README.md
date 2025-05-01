@@ -1,75 +1,143 @@
-# Gym System
+# Academia CEFET
 
-Esse projeto foi feito com fins de estudar OOP (Programação Orientada a Objeto), disciplina lecionada pelo professor Carlos Pantoja, na universidade federal Cefet-RJ.
+Projeto desenvolvido por alunos do CEFET Maria da Graça na disciplina de **Java Orientada a Objetos**.
 
-// This is a university-oriented project, designed to improve student's knowledge upon OOP (and Java).
+---
 
-## Funções do projeto // features
-A classe GymSystem é a principal, pois interage com todas as outras classes; ela deve ser usada nos testes (unitários e outros.)
+## 🚨 Regras de Contribuição
 
-### Person - super class to provide inheritance for Members and Employees
+### 🚫 Não faça alterações diretas na branch `main`
+A branch `main` representa a versão estável do sistema. Todas as alterações devem ser feitas em branches baseadas na branch `new-gym` e revisadas antes de serem integradas à `main`.
 
-Person
-```
-    private String dtNascimento;
-    private String telefone;
-    private String eMail;
-    private String endereco;
-    private String cpf;
-    private String nome;
+### ✅ Fluxo de Trabalho
 
-    private char genero;
-    private int matricula;
-    private float peso;
-    private float altura;
-```
+1. **Atualize a branch `main` no seu ambiente local:**
+   ```bash
+   git checkout main
+   git pull origin main
+   ```
 
-### Member Management – Register, check-in, check-out, view Member details.
+2. **Troque para a branch `new-gym`:**
+   ```bash
+   git checkout new-gym
+   ```
 
-Aluno (Member) : Person
-```
-    altura: float
-    peso: float
-```
+3. **Crie uma nova branch a partir de `new-gym`:**
+   Escolha um nome que descreva a funcionalidade ou correção que você irá implementar, por exemplo:
+   ```bash
+   git checkout -b cadastro-aluno
+   ```
 
-### Employee - super class to provide inheritance for Employees
+4. **Implemente as alterações necessárias e faça o commit:**
+   ```bash
+   git add .
+   git commit -m "Adicionei cadastro de aluno"
+   ```
 
-Funcionário (Employee) : Person
-```
-    cargo: String
-    salario: float
-    seguridade: int
-    ctps: String
-```
+5. **Envie sua branch para o GitHub:**
+   ```bash
+   git push origin cadastro-aluno
+   ```
 
-### Treinador //Trainer Management - Register, check-in, check-out, class.
+> **Nota:** A branch `main` deve permanecer estável. Todas as novas funcionalidades ou correções devem ser desenvolvidas a partir da branch `new-gym`.
 
-Treinador (Trainer) : Employee
-```
-    aulas: Aula[]
-    aulasAgendadas: Agendamentos[]
-```    
+---
 
-### Aulas // Class Management – Class booking, availability checking, time assignment.
+## ✅ Funcionalidades do Projeto
 
-Aula (Class)
-```
-    professor: Professor
-    descrição: String
-```
+### **Gerenciamento de Pessoas**
+- **Classe Base:** `Person`
+  ```java
+  nome: String
+  cpf: String
+  endereco: String
+  email: String
+  telefone: String
+  dtNascimento: String
+  genero: char
+  matricula: int
+  ```
 
-### Agendamento // Reservation System – Allow reservations, cancellations, modify bookings.
+### **Gerenciamento de Alunos**
+- **Classe:** `Aluno` (herda de `Person`)
+  ```java
+  altura: float
+  peso: float
+  ```
 
-Reserva/Agendamento de aula (Appointment / Scheduling)
-```
-    aula: Aula
-    dataAgendada: String
-```
+### **Gerenciamento de Funcionários**
+- **Classe:** `Funcionario` (herda de `Person`)
+  ```java
+  cargo: String
+  salario: String
+  seguridade: int
+  ctps: int
+  ```
 
-### Pagamentos // Billing System – Generate invoices, handle payments.
+### **Gerenciamento de Aulas**
+- **Classe:** `Aula`
+  ```java
+  id: int
+  memberId: int
+  descricao: String
+  ```
 
-## Database // Banco de Dados
+### **Sistema de Reservas**
+- **Classe:** `Reserva`
+  ```java
+  id: int
+  classId: int
+  dataAgendada: String
+  ```
 
-Por enquanto, não trabalharemos com bancos de dados. Usaremos armazenamento em memória (estruturas de dados como ArrayList, Stack etc.).
+### **Sistema de Cobrança**
+- Geração de faturas e gerenciamento de pagamentos.
 
-For a while, it is not required to set a database up. So that, you shall join using in-memory storage solutions, such as ArrayList, Stack etc.
+---
+
+## 💻 Interface Gráfica (JavaFX)
+
+O projeto utiliza **JavaFX** para renderização das janelas em modo desktop, compatível com os principais sistemas operacionais.
+
+### Como executar:
+
+1. **Instale as dependências:**
+   ```bash
+   mvn install
+   ```
+
+2. **Execute a aplicação com interface gráfica:**
+   ```bash
+   mvn clean javafx:run
+   ```
+
+3. **(Opcional) Execute sem interface gráfica:**
+   ```bash
+   mvn exec:java
+   ```
+
+---
+
+## 🗄️ Banco de Dados
+
+Atualmente, o projeto utiliza **armazenamento em memória** com estruturas como `ArrayList` e `Stack`. Não é necessário configurar um banco de dados.
+
+---
+
+## 📚 Tecnologias Utilizadas
+
+- **Linguagem:** Java
+- **Framework de Interface:** JavaFX
+- **Gerenciador de Dependências:** Maven
+
+---
+
+## 📜 Licença
+
+Este projeto é de uso acadêmico e não possui uma licença específica.
+
+---
+
+## 👥 Contribuidores
+
+Desenvolvido por alunos do CEFET Maria da Graça.

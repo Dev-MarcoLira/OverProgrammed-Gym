@@ -1,122 +1,127 @@
 package br.cefet;
 
+import java.util.LinkedList;
+
+import br.cefet.enums.EGenero;
+
 public class Person {
-    private String dtNascimento;
-    private String telefone;
-    private String eMail;
-    private String endereco;
-    private String cpf;
+ 
     private String nome;
+    private Endereco endereco;
+    private String dtNascimento;
+    private String matricula;
+    
+    private EGenero genero;
+    private LinkedList<Documento> documentos = new LinkedList<>();
+    private LinkedList<Contato> contatos;
 
-    private char genero;
-    private int matricula;
-    private float peso;
-    private float altura;
+    public Person(){this.contatos = new LinkedList<>();
+}
 
-    public Person(String nome, String cpf, String dtNascimento, String telefone){
+    public Person(
+        String nome,
+        LinkedList<Contato> contatos,
+        LinkedList<Documento> documentos,
+        EGenero genero
+    ){
+        this.contatos = new LinkedList<>();
         setNome(nome);
-        setCpf(cpf);
-        setDtNascimento(dtNascimento);
-        setTelefone(telefone);
+        setContatos(contatos);
+        setDocumentos(documentos);
+        setGenero(genero);
     }
+    
+    public Person(
+        String nome,
+        LinkedList<Documento> documentos,
+        String dtNascimento,
+        Endereco endereco,
+        LinkedList<Contato> contatos,
+        EGenero genero,
+        String matricula
+        ){
+        this.contatos = new LinkedList<>();
+            setDocumentos(documentos);
+            setNome(nome);
+            setDtNascimento(dtNascimento);
+            setEndereco(endereco);
+            setContatos(contatos);
+            setGenero(genero);
+            setMatricula(matricula);
+        }
 
-    // Precisa validar o Telefone de Member e Trainer
-
-    public void validatePhone(){
-
+    public String getMatricula() {
+        return this.matricula;
     }
-
-    // Precisa validar o CPF de Member e Trainer
-    public boolean validateCpf(){
-        return false;
+    
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
-
-    // Precisa validar a data de nascimento
-    public boolean validateDate(String data){
-        return true;
-    }
-
-    public String getDtNascimento() {
-        return this.dtNascimento;
-    }
-
-    public void setDtNascimento(String dtNascimento) {
-        this.dtNascimento = dtNascimento;
-    }
-
-    public String getTelefone() {
-        return this.telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getEMail() {
-        return this.eMail;
-    }
-
-    public void setEMail(String eMail) {
-        this.eMail = eMail;
-    }
-
-    public String getEndereco() {
-        return this.endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public String getCpf() {
-        return this.cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
+    
     public String getNome() {
         return this.nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+    public LinkedList<Documento> getDocumentos() {
+        return this.documentos;
     }
 
-    public char getGenero() {
-        return this.genero;
+    public void setDocumentos(LinkedList<Documento> documentos) {
+        this.documentos = documentos;
     }
 
-    public void setGenero(char genero) {
-        this.genero = genero;
+    public void addDocumento(Documento documento) {
+        this.documentos.add(documento);
+    }
+    
+    public void removeDocumento(Documento documento) {
+        this.documentos.remove(documento);
     }
 
-    public int getMatricula() {
-        return this.matricula;
+	public Endereco getEndereco() {
+		return this.endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	public String getDtNascimento() {
+		return this.dtNascimento;
+	}
+
+	public void setDtNascimento(String dtNascimento) {
+		this.dtNascimento = dtNascimento;
+	}
+	
+    public LinkedList<Contato> getContatos() {
+        return this.contatos;
     }
 
-    public void setMatricula(int matricula) {
-        this.matricula = matricula;
+    public void setContatos(LinkedList<Contato> contatos) {
+        this.contatos = contatos;
     }
 
-    public float getPeso() {
-        return this.peso;
+    public void addContato(Contato contato) {
+        this.contatos.add(contato);
     }
-
-    public void setPeso(float peso) {
-        this.peso = peso;
-    }
-
-    public float getAltura() {
-        return this.altura;
-    }
-
-    public void setAltura(float altura) {
-        this.altura = altura;
+    
+    public void removeContato(Contato contato) {
+        this.contatos.remove(contato);
     }
     
 
+	public EGenero getGenero() {
+		return this.genero;
+	}
+
+	public void setGenero(EGenero genero) {
+		this.genero = genero;
+	}
 
 
 }

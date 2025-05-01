@@ -1,15 +1,22 @@
-package br.cefet;
+package br.cefet.enums;
 
-public class Class {
- 
+public enum ETipoDocumentoPerson {
+    
+    CPF("CPF"),
+    RG("RG"),
+    CNH("CNH"),
+    PASSAPORTE("Passaporte"),
+    CARTEIRA_TRABALHO("Carteira de Trabalho"),
+    OUTRO("Outro");
+
     private String descricao;
 
-    public Class(
+    
+    ETipoDocumentoPerson(
         String descricao
     ){
         setDescricao(descricao);
     }
-
     public String getDescricao() {
         return this.descricao;
     }
